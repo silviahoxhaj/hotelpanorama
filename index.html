@@ -2,280 +2,172 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hotel Panorama Menu</title>
-<style>
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom, #dceefc, #ffffff);
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    color: #002c40;
-  }
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffaf3;
+      color: #333;
+    }
 
-  .logo {
-    max-width: 220px;
-    margin: 20px auto;
-    display: block;
-  }
+    .hero {
+      background: url('/mnt/data/5e75f630-c43d-4131-aeea-4f0833a75ad8.png') no-repeat center center/cover;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
 
-  h1 {
-    font-size: 2.8em;
-    margin: 10px 0 0;
-    color: #004c73;
-    letter-spacing: 1px;
-  }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+    }
 
-  h2 {
-    font-size: 1.6em;
-    margin-bottom: 30px;
-    color: #003b5c;
-    font-weight: 500;
-  }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+    }
 
-  .buttons {
-    margin-bottom: 30px;
-  }
+    .hero-content h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: #fff3dc;
+    }
 
-  .buttons button {
-    padding: 12px 25px;
-    font-size: 1em;
-    margin: 0 12px;
-    border: none;
-    background-color: #007acc;
-    color: white;
-    cursor: pointer;
-    border-radius: 30px;
-    box-shadow: 0 4px 12px rgba(0, 122, 204, 0.2);
-    transition: all 0.3s ease;
-  }
+    .hero-content p {
+      font-size: 1.3em;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: #eee;
+    }
 
-  .buttons button:hover {
-    background-color: #005fa3;
-    box-shadow: 0 6px 16px rgba(0, 95, 163, 0.3);
-    transform: translateY(-2px);
-  }
+    .menu {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-  .menu-section {
-    display: none;
-    max-width: 800px;
-    margin: 0 auto 50px auto;
-    text-align: left;
-    padding: 30px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 51, 78, 0.1);
-  }
+    .menu h2 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #444;
+    }
 
-  .menu-section.active {
-    display: block;
-  }
+    .menu-category {
+      margin-bottom: 40px;
+    }
 
-  .menu-category {
-    margin-top: 40px;
-  }
+    .menu-category h3 {
+      font-size: 1.8em;
+      border-bottom: 2px solid #e0c097;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      color: #3c2a21;
+    }
 
-  .menu-category h3 {
-    border-bottom: 2px solid #007acc;
-    padding-bottom: 8px;
-    color: #004466;
-    font-size: 1.3em;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #ccc;
+    }
 
-  .menu-item {
-    margin-bottom: 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    border-bottom: 1px dashed #ccc;
-    padding-bottom: 6px;
-  }
+    .menu-item span {
+      font-weight: bold;
+    }
 
-  .menu-item-name {
-    font-weight: 400;
-    font-size: 1.05em;
-    color: #333;
-    max-width: 80%;
-  }
+    @media (max-width: 600px) {
+      .hero-content h1 {
+        font-size: 2.2em;
+      }
 
-  .menu-item-price {
-    font-size: 0.95em;
-    color: #004c73;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-</style>
+      .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
+      .menu-item span {
+        margin-top: 5px;
+        color: #888;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <img src="logo panorama.png" alt="Hotel Panorama Logo" class="logo">
-  <h1>HOTEL PANORAMA</h1>
-  <h2>MENU</h2>
-
-  <div class="buttons">
-  <button type="button" onclick="showMenu('food')">Food</button>
-  <button type="button" onclick="showMenu('drinks')">Drinks</button>
-</div>
-
-
-  <div id="food" class="menu-section">
-    <div class="menu-category">
-      <h3>Salads</h3>
-      <div class="menu-item"><div class="menu-item-name">Antioxidant Salad (mixed greens, pomegranate, mango, orange and walnuts)</div><div class="menu-item-price">750</div></div>
-      <div class="menu-item"><div class="menu-item-name">Arugula Salad (with parmesan cheese, cherry tomatoes and balsamic vinegar)</div><div class="menu-item-price">650</div></div>
-      <div class="menu-item"><div class="menu-item-name">Greek Salad</div><div class="menu-item-price">500</div></div>
-      <div class="menu-item"><div class="menu-item-name">Grilled Veggies</div><div class="menu-item-price">600</div></div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>HOTEL PANORAMA MENU</h1>
+      <p>Indulge in a delightful selection of traditional and modern dishes, crafted to satisfy every craving. Taste the passion in every bite – buon appetito!</p>
     </div>
+  </section>
 
-<div class="menu-category">
-  <h3>Accompaniments</h3>
-  <div class="menu-item"><div class="menu-item-name">Saganaki (oven baked cheese with peppers and tomatoes)</div><div class="menu-item-price">550</div></div>
-  <div class="menu-item"><div class="menu-item-name">French Fries</div><div class="menu-item-price">300</div></div>
-  <div class="menu-item"><div class="menu-item-name">Tzatziki</div><div class="menu-item-price">300</div></div>
-  <div class="menu-item"><div class="menu-item-name">Feta Cheese</div><div class="menu-item-price">300</div></div>
-  <div class="menu-item"><div class="menu-item-name">Yellow Cheese</div><div class="menu-item-price">450</div></div>
-</div>
-
+  <!-- Menu Section -->
+  <section class="menu">
+    <h2>Our Menu</h2>
 
     <div class="menu-category">
-      <h3>Soups</h3>
-      <div class="menu-item"><div class="menu-item-name">Fish Soup</div><div class="menu-item-price">600</div></div>
-      <div class="menu-item"><div class="menu-item-name">Vegetable Soup</div><div class="menu-item-price">450</div></div>
-      <div class="menu-item"><div class="menu-item-name">Chicken Soup</div><div class="menu-item-price">500</div></div>
+      <h3>Starters</h3>
+      <div class="menu-item">
+        <div>Bruschetta with Tomato & Basil</div><span>€6.00</span>
+      </div>
+      <div class="menu-item">
+        <div>Grilled Halloumi Cheese</div><span>€7.50</span>
+      </div>
     </div>
 
     <div class="menu-category">
-  <h3>Cold Seafood Starters</h3>
-  <div class="menu-item"><div class="menu-item-name">Octopus Salad with cherry tomatoes</div><div class="menu-item-price">1500</div></div>
-  <div class="menu-item"><div class="menu-item-name">Mixed cold seafood salad</div><div class="menu-item-price">1300</div></div>
-</div>
+      <h3>Main Courses</h3>
+      <div class="menu-item">
+        <div>Grilled Sea Bass with Herbs</div><span>€15.00</span>
+      </div>
+      <div class="menu-item">
+        <div>Spaghetti Carbonara</div><span>€12.00</span>
+      </div>
+      <div class="menu-item">
+        <div>Pan-Seared Chicken Breast</div><span>€13.50</span>
+      </div>
+    </div>
 
-<div class="menu-category">
-  <h3>Warm Seafood Starters</h3>
-  <div class="menu-item"><div class="menu-item-name">Shrimps with sugo sauce</div><div class="menu-item-price">850</div></div>
-  <div class="menu-item"><div class="menu-item-name">Octopus with truffle sauce</div><div class="menu-item-price">950</div></div>
-  <div class="menu-item"><div class="menu-item-name">Sauteed mussels</div><div class="menu-item-price">600</div></div>
-  <div class="menu-item"><div class="menu-item-name">Fried calamari with sweet-chili sauce</div><div class="menu-item-price">1100</div></div>
-  <div class="menu-item"><div class="menu-item-name">Grilled calamari with sweet-chili sauce</div><div class="menu-item-price">1200</div></div>
-  <div class="menu-item"><div class="menu-item-name">Fried shrimp with sweet-chili sauce</div><div class="menu-item-price">1300</div></div>
-  <div class="menu-item"><div class="menu-item-name">Grilled shrimps with sweet-chili sauce</div><div class="menu-item-price">1400</div></div>
-  <div class="menu-item"><div class="menu-item-name">Mix seafood fried or grilled</div><div class="menu-item-price">1600</div></div>
-</div>
-
-<div class="menu-category">
-  <h3>Pasta & Risotto</h3>
-  <div class="menu-item"><div class="menu-item-name">Seafood Linguine</div><div class="menu-item-price">800</div></div>
-  <div class="menu-item"><div class="menu-item-name">Linguine with shrimps and zucchini</div><div class="menu-item-price">900</div></div>
-  <div class="menu-item"><div class="menu-item-name">Linguine with veal fillet and asparagus</div><div class="menu-item-price">1200</div></div>
-  <div class="menu-item"><div class="menu-item-name">Seafood Risotto</div><div class="menu-item-price">800</div></div>
-  <div class="menu-item"><div class="menu-item-name">Pink Risotto with shrimps</div><div class="menu-item-price">850</div></div>
-  <div class="menu-item"><div class="menu-item-name">Chicken-truffle Risotto</div><div class="menu-item-price">750</div></div>
-  <div class="menu-item"><div class="menu-item-name">Vegetarian Risotto</div><div class="menu-item-price">550</div></div>
-</div>
-
-<div class="menu-category">
-  <h3>Main Dishes - Sea</h3>
-  <div class="menu-item"><div class="menu-item-name">Grilled Sea Bream with side dish</div><div class="menu-item-price">1200</div></div>
-  <div class="menu-item"><div class="menu-item-name">Grilled Sea Bass with side dish</div><div class="menu-item-price">1200</div></div>
-  <div class="menu-item"><div class="menu-item-name">Fresh Catch (ask the waiter)</div><div class="menu-item-price">x</div></div>
-  <div class="menu-item"><div class="menu-item-name">Lemon and wine Sole Fillets</div><div class="menu-item-price">1000</div></div>
-</div>
-
-<div class="menu-category">
-  <h3>Main Dishes - Land</h3>
-  <div class="menu-item"><div class="menu-item-name">Grilled Beef with side dish (500 gr)</div><div class="menu-item-price">2800</div></div>
-  <div class="menu-item"><div class="menu-item-name">Chicken fillet in creamy mushroom sauce</div><div class="menu-item-price">800</div></div>
-</div>
-
-<div class="menu-category">
-  <h3>Pizza</h3>
-  <div class="menu-item"><div class="menu-item-name">MARGHERITA (Tomato Sauce, Mozzarella Cheese)</div><div class="menu-item-price">600</div></div>
-  <div class="menu-item"><div class="menu-item-name">HAM (Tomato Sauce, Mozzarella Cheese, Ham)</div><div class="menu-item-price">700</div></div>
-  <div class="menu-item"><div class="menu-item-name">SALAMI (Tomato Sauce, Mozzarella Cheese, Salami)</div><div class="menu-item-price">700</div></div>
-  <div class="menu-item"><div class="menu-item-name">HAM & SALAMI (Tomato Sauce, Mozzarella Cheese, Ham, Salami)</div><div class="menu-item-price">800</div></div>
-  <div class="menu-item"><div class="menu-item-name">MUSHROOM & TUNA (Tomato Sauce, Mozzarella Cheese, Mushroom, Tuna)</div><div class="menu-item-price">700</div></div>
-  <div class="menu-item"><div class="menu-item-name">CAPRICCIOSA (Tomato Sauce, Mozzarella, Ham, Salami, Mushroom, Pepper, Tomato, Olives)</div><div class="menu-item-price">900</div></div>
-  <div class="menu-item"><div class="menu-item-name">4 SEASONS (Tomato Sauce, Mozzarella Cheese, Tuna, Mushroom, Salami, Ham)</div><div class="menu-item-price">900</div></div>
-  <div class="menu-item"><div class="menu-item-name">VEGETARIAN (Tomato Sauce, Mozzarella, Eggplant, Zucchini, Tomato, Peppers, Onion, Olives)</div><div class="menu-item-price">700</div></div>
-  <div class="menu-item"><div class="menu-item-name">SEAFOOD (Tomato Sauce, Mozzarella Cheese, Seafood)</div><div class="menu-item-price">1100</div></div>
-  <div class="menu-item"><div class="menu-item-name">CALZONE (Tomato Sauce, Mozzarella, Ham, Mushroom, Olives)</div><div class="menu-item-price">750</div></div>
-  <div class="menu-item"><div class="menu-item-name">DEVIL (Tomato Sauce, Mozzarella, Pepperoni, Black Pepper, Tabasco Sauce)</div><div class="menu-item-price">700</div></div>
-  <div class="menu-item"><div class="menu-item-name">PULIESE (Tomato Sauce, Mozzarella, Fresh Tomato)</div><div class="menu-item-price">600</div></div>
-  <div class="menu-item"><div class="menu-item-name">PANORAMA (Tomato Sauce, Mozzarella, Ham, Salami, Mushroom, Bacon, Peppers, Tomato, Olives)</div><div class="menu-item-price">1200</div></div>
-</div>
-
-<div class="menu-category">
-  <h3>Desserts</h3>
-  <div class="menu-item"><div class="menu-item-name">Banoffee</div><div class="menu-item-price">450</div></div>
-  <div class="menu-item"><div class="menu-item-name">Tiramisu</div><div class="menu-item-price">450</div></div>
-  <div class="menu-item"><div class="menu-item-name">Chocolate Souffle with ice cream</div><div class="menu-item-price">550</div></div>
-  <div class="menu-item"><div class="menu-item-name">Portokalopita with ice cream (orange pie)</div><div class="menu-item-price">450</div></div>
-  <div class="menu-item"><div class="menu-item-name">Sokolatopita (chocolate pie)</div><div class="menu-item-price">400</div></div>
-  <div class="menu-item"><div class="menu-item-name">Tres Leches</div><div class="menu-item-price">350</div></div>
-</div>
-
-</div>
-
-  <div id="drinks" class="menu-section">
     <div class="menu-category">
-  <h3>Coffee</h3>
-  <div class="menu-item"><div class="menu-item-name">Espresso</div><div class="menu-item-price">150</div></div>
-  <div class="menu-item"><div class="menu-item-name">Double Espresso</div><div class="menu-item-price">220</div></div>
-  <div class="menu-item"><div class="menu-item-name">Macchiato</div><div class="menu-item-price">150</div></div>
-  <div class="menu-item"><div class="menu-item-name">Cappuccino</div><div class="menu-item-price">250</div></div>
-  <div class="menu-item"><div class="menu-item-name">Americano</div><div class="menu-item-price">200</div></div>
-  <div class="menu-item"><div class="menu-item-name">Coffee Latte</div><div class="menu-item-price">200</div></div>
-  <div class="menu-item"><div class="menu-item-name">Freddo Cappuccino</div><div class="menu-item-price">250</div></div>
-  <div class="menu-item"><div class="menu-item-name">Freddo Espresso</div><div class="menu-item-price">250</div></div>
-</div>
+      <h3>Desserts</h3>
+      <div class="menu-item">
+        <div>Tiramisu</div><span>€5.50</span>
+      </div>
+      <div class="menu-item">
+        <div>Panna Cotta with Berries</div><span>€6.00</span>
+      </div>
+    </div>
 
-<div class="menu-category">
-  <h3>Drinks</h3>
-  <div class="menu-item"><div class="menu-item-name">Water (0.5 L)</div><div class="menu-item-price">100</div></div>
-  <div class="menu-item"><div class="menu-item-name">Water (1 L)</div><div class="menu-item-price">200</div></div>
-  <div class="menu-item"><div class="menu-item-name">Sparkling Water</div><div class="menu-item-price">100</div></div>
-  <div class="menu-item"><div class="menu-item-name">Tonic Water</div><div class="menu-item-price">200</div></div>
-  <div class="menu-item"><div class="menu-item-name">Coca Cola</div><div class="menu-item-price">200</div></div>
-  <div class="menu-item"><div class="menu-item-name">Fanta</div><div class="menu-item-price">200</div></div>
-  <div class="menu-item"><div class="menu-item-name">Bravo</div><div class="menu-item-price">200</div></div>
-  <div class="menu-item"><div class="menu-item-name">Soda Lemon/Orange</div><div class="menu-item-price">200</div></div>
-  <div class="menu-item"><div class="menu-item-name">Rose Lemonade</div><div class="menu-item-price">550</div></div>
-  <div class="menu-item"><div class="menu-item-name">Red Bull</div><div class="menu-item-price">500</div></div>
-</div>
+    <div class="menu-category">
+      <h3>Drinks</h3>
+      <div class="menu-item">
+        <div>Espresso</div><span>€2.00</span>
+      </div>
+      <div class="menu-item">
+        <div>House Wine (Glass)</div><span>€4.50</span>
+      </div>
+      <div class="menu-item">
+        <div>Still / Sparkling Water</div><span>€1.50</span>
+      </div>
+    </div>
+  </section>
 
-<div class="menu-category">
-  <h3>Alcoholic Drinks</h3>
-  <div class="menu-item"><div class="menu-item-name">Korca</div><div class="menu-item-price">250</div></div>
-  <div class="menu-item"><div class="menu-item-name">Peroni</div><div class="menu-item-price">250</div></div>
-  <div class="menu-item"><div class="menu-item-name">Corona</div><div class="menu-item-price">500</div></div>
-  <div class="menu-item"><div class="menu-item-name">Wine 1L (Red/White)</div><div class="menu-item-price">1200</div></div>
-  <div class="menu-item"><div class="menu-item-name">Wine (Glass)</div><div class="menu-item-price">350</div></div>
-  <div class="menu-item"><div class="menu-item-name">Albanian Raki</div><div class="menu-item-price">150</div></div>
-  <div class="menu-item"><div class="menu-item-name">Uzo</div><div class="menu-item-price">350</div></div>
-</div>
-
-<div class="menu-category">
-  <h3>Long Drinks & Cocktails</h3>
-  <div class="menu-item"><div class="menu-item-name">Aperol Spritz</div><div class="menu-item-price">600</div></div>
-  <div class="menu-item"><div class="menu-item-name">Gin Tonic</div><div class="menu-item-price">500</div></div>
-  <div class="menu-item"><div class="menu-item-name">Vodka Lemon</div><div class="menu-item-price">500</div></div>
-  <div class="menu-item"><div class="menu-item-name">Vodka Orange</div><div class="menu-item-price">500</div></div>
-  <div class="menu-item"><div class="menu-item-name">Vodka Redbull</div><div class="menu-item-price">600</div></div>
-  <div class="menu-item"><div class="menu-item-name">Vodka Sour</div><div class="menu-item-price">800</div></div>
-  <div class="menu-item"><div class="menu-item-name">Mojito</div><div class="menu-item-price">800</div></div>
-  <div class="menu-item"><div class="menu-item-name">Pina Colada</div><div class="menu-item-price">800</div></div>
-</div>
-
-  <script>
-    function showMenu(type) {
-      document.getElementById("food").classList.remove("active");
-      document.getElementById("drinks").classList.remove("active");
-      document.getElementById(type).classList.add("active");
-    }
-  </script>
 </body>
 </html>
