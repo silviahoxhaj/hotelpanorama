@@ -145,7 +145,7 @@
       <h1>HOTEL PANORAMA MENU</h1>
       <p>Indulge in a delightful selection of traditional and modern dishes, crafted to satisfy every craving. Taste the passion in every bite – buon appetito!</p>
       <div class="menu-toggle">
-        <button id="foodBtn" class="active">Food</button>
+        <button id="foodBtn">Food</button>
         <button id="drinksBtn">Drinks</button>
       </div>
     </div>
@@ -300,27 +300,27 @@
 </section>
 
 <script>
-  const foodBtn = document.getElementById('foodBtn');
-  const drinksBtn = document.getElementById('drinksBtn');
+    const foodBtn = document.getElementById('foodBtn');
+    const drinksBtn = document.getElementById('drinksBtn');
+    const foodMenu = document.getElementById('foodMenu');
+    const drinksMenu = document.getElementById('drinksMenu');
+    const hero = document.getElementById('hero');
 
-  const foodMenu = document.getElementById('foodMenu');
-  const drinksMenu = document.getElementById('drinksMenu');
+    foodBtn.addEventListener('click', () => {
+      hero.classList.add('shrink');
+      foodMenu.classList.add('active');
+      drinksMenu.classList.remove('active');
+      foodBtn.classList.add('active');
+      drinksBtn.classList.remove('active');
+    });
 
-  foodBtn.addEventListener('click', () => {
-    foodBtn.classList.add('active');
-    drinksBtn.classList.remove('active');
-    foodMenu.classList.add('active');
-    drinksMenu.classList.remove('active');
-  });
-
-  drinksBtn.addEventListener('click', () => {
-    drinksBtn.classList.add('active');
-    foodBtn.classList.remove('active');
-    drinksMenu.classList.add('active');
-    foodMenu.classList.remove('active');
-  });
-</script>
-
+    drinksBtn.addEventListener('click', () => {
+      hero.classList.add('shrink');
+      drinksMenu.classList.add('active');
+      foodMenu.classList.remove('active');
+      drinksBtn.classList.add('active');
+      foodBtn.classList.remove('active');
+    });
+  </script>
 </body>
-
 </html>
