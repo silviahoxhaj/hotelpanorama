@@ -4,12 +4,6 @@
   <meta charset="UTF-8">
   <title>Hotel Panorama Menu</title>
   <style>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Hotel Panorama Menu</title>
-  <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -217,88 +211,4 @@
 </html>
 
 
-  </style>
-</head>
-<body>
-
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>HOTEL PANORAMA MENU</h1>
-      <p>Indulge in a delightful selection of traditional and modern dishes, crafted to satisfy every craving. Taste the passion in every bite – buon appetito!</p>
-      <div class="menu-toggle">
-        <button id="foodBtn" class="active">Food</button>
-        <button id="drinksBtn">Drinks</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Food Section -->
-  <div id="foodSection" class="menu-section">
-    <div class="menu-item">
-      <div>Spaghetti Carbonara</div><span>€12.00</span>
-    </div>
-    <div class="menu-item">
-      <div>Grilled Sea Bass</div><span>€15.00</span>
-    </div>
-    <div class="menu-item">
-      <div>Chicken Parmesan</div><span>€13.00</span>
-    </div>
-    <div class="menu-item">
-      <div>Bruschetta</div><span>€6.00</span>
-    </div>
-    <div class="menu-item">
-      <div>Caesar Salad</div><span>€8.50</span>
-    </div>
-  </div>
-
-  <!-- Drinks Section -->
-  <div id="drinksSection" class="menu-section">
-    <div class="menu-item">
-      <div>Espresso</div><span>€2.00</span>
-    </div>
-    <div class="menu-item">
-      <div>Cappuccino</div><span>€2.50</span>
-    </div>
-    <div class="menu-item">
-      <div>Fresh Orange Juice</div><span>€3.00</span>
-    </div>
-    <div class="menu-item">
-      <div>House Red Wine (Glass)</div><span>€4.50</span>
-    </div>
-    <div class="menu-item">
-      <div>Still / Sparkling Water</div><span>€1.50</span>
-    </div>
-  </div>
-
-  <!-- JavaScript -->
-  <script>
-    const foodBtn = document.getElementById('foodBtn');
-    const drinksBtn = document.getElementById('drinksBtn');
-    const foodSection = document.getElementById('foodSection');
-    const drinksSection = document.getElementById('drinksSection');
-    const hero = document.getElementById('hero');
-
-    function showSection(section) {
-      hero.classList.add('shrink');
-      foodBtn.classList.remove('active');
-      drinksBtn.classList.remove('active');
-      foodSection.classList.remove('active');
-      drinksSection.classList.remove('active');
-
-      if (section === 'food') {
-        foodBtn.classList.add('active');
-        foodSection.classList.add('active');
-      } else {
-        drinksBtn.classList.add('active');
-        drinksSection.classList.add('active');
-      }
-    }
-
-    foodBtn.addEventListener('click', () => showSection('food'));
-    drinksBtn.addEventListener('click', () => showSection('drinks'));
-  </script>
-
-</body>
-</html>
+ 
