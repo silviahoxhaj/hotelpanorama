@@ -273,9 +273,8 @@
     <div class="menu-item"><div>Soda Lemon/Orange</div><span>2.00</span></div>
     <div class="menu-item"><div>Rose Lemonade</div><span>5.50</span></div>
     <div class="menu-item"><div>Red Bull</div><span>5.00</span></div>
-  </div>
+   <div class="menu-category">
 
-  <div class="menu-category">
     <h3>Alcoholic Drinks</h3>
     <div class="menu-item"><div>Korca</div><span>2.50</span></div>
     <div class="menu-item"><div>Peroni</div><span>2.50</span></div>
@@ -300,26 +299,59 @@
 </section>
 
 
-  <script>
-  const foodBtn = document.getElementById("foodBtn");
-  const drinksBtn = document.getElementById("drinksBtn");
-  const foodMenu = document.getElementById("foodMenu");
-  const drinksMenu = document.getElementById("drinksMenu");
 
-  foodBtn.addEventListener("click", () => {
-    foodBtn.classList.add("active");
-    drinksBtn.classList.remove("active");
-    foodMenu.classList.add("active");
-    drinksMenu.classList.remove("active");
-  });
+ <script>
 
-  drinksBtn.addEventListener("click", () => {
-    drinksBtn.classList.add("active");
-    foodBtn.classList.remove("active");
-    drinksMenu.classList.add("active");
-    foodMenu.classList.remove("active");
-  });
-</script>
+    const foodBtn = document.getElementById('foodBtn');
+
+    const drinksBtn = document.getElementById('drinksBtn');
+
+    const foodSection = document.getElementById('foodSection');
+
+    const drinksSection = document.getElementById('drinksSection');
+
+    const hero = document.getElementById('hero');
+
+
+
+    function showMenu(sectionToShow) {
+
+      hero.classList.add('shrink');
+
+      foodSection.classList.remove('active');
+
+      drinksSection.classList.remove('active');
+
+      sectionToShow.classList.add('active');
+
+    }
+
+
+
+    foodBtn.addEventListener('click', () => {
+
+      foodBtn.classList.add('active');
+
+      drinksBtn.classList.remove('active');
+
+      showMenu(foodSection);
+
+    });
+
+
+
+    drinksBtn.addEventListener('click', () => {
+
+      drinksBtn.classList.add('active');
+
+      foodBtn.classList.remove('active');
+
+      showMenu(drinksSection);
+
+    });
+
+  </script>
 
 </body>
+
 </html>
