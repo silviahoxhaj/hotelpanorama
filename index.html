@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Hotel Panorama Menu</title>
   <style>
+
     body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -20,11 +21,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: height 0.6s ease;
-}
-
-.hero.shrink {
-  height: 40vh;
 }
 
 .overlay {
@@ -57,7 +53,7 @@
   font-size: 1.1em;
   max-width: 600px;
   margin: 0 auto 20px;
-  line-height: 1.4;
+  line-height: 1.5;
   color: #eee;
 }
 
@@ -70,7 +66,7 @@
 }
 
 .menu-toggle button {
-  padding: 10px 25px;
+  padding: 12px 25px;
   font-size: 1em;
   background-color: #e0c097;
   border: none;
@@ -86,10 +82,11 @@
   color: white;
 }
 
+/* Menu Section */
 .menu-section {
   display: none;
   max-width: 800px;
-  margin: 20px auto 40px;
+  margin: 20px auto;
   padding: 0 20px;
 }
 
@@ -105,29 +102,31 @@
   font-size: 1.1em;
 }
 
-.menu-item span {
-  font-weight: bold;
-}
-
+/* Mobile Responsive */
 @media (max-width: 600px) {
+  .hero {
+    height: 90vh;
+  }
+
   .hero-content h1 {
     font-size: 1.8em;
   }
 
   .hero-content p {
     font-size: 1em;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .menu-toggle {
-    gap: 10px;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+    margin-top: 30px;
   }
 
   .menu-toggle button {
     width: 80%;
-    font-size: 1em;
+    font-size: 1.05em;
   }
 
   .menu-item {
@@ -137,11 +136,12 @@
   }
 
   .menu-item span {
-    margin-top: 5px;
+    margin-top: 4px;
     color: #555;
     font-size: 0.95em;
   }
 }
+
 
   </style>
 </head>
