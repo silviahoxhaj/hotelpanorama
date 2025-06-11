@@ -301,24 +301,25 @@
 
 
   <script>
-    const foodBtn = document.getElementById("foodBtn");
-    const drinksBtn = document.getElementById("drinksBtn");
-    const foodMenu = document.getElementById("foodMenu");
-    const drinksMenu = document.getElementById("drinksMenu");
+  const foodBtn = document.getElementById("foodBtn");
+  const drinksBtn = document.getElementById("drinksBtn");
+  const foodMenu = document.getElementById("foodMenu");
+  const drinksMenu = document.getElementById("drinksMenu");
 
-    foodBtn.addEventListener("click", () => {
-      foodBtn.classList.add("active");
-      drinksBtn.classList.remove("active");
-      foodMenu.classList.add("active");
-      drinksMenu.classList.remove("active");
-    });
+  foodBtn.addEventListener("click", () => {
+    foodBtn.classList.add("active");
+    drinksBtn.classList.remove("active");
+    foodMenu.classList.add("active");
+    drinksMenu.classList.remove("active");
+  });
 
-    drinksBtn.addEventListener("click", () => {
-      drinksBtn.classList.add("active");
-      foodBtn.classList.remove("active");
-      drinksMenu.classList.add("active");
-      foodMenu.classList.remove("active");
-    });
-  </script>
+  drinksBtn.addEventListener("click", () => {
+    drinksBtn.classList.add("active");
+    foodBtn.classList.remove("active");
+    drinksMenu.classList.add("active");
+    foodMenu.classList.remove("active");
+  });
+</script>
+
 </body>
 </html>
